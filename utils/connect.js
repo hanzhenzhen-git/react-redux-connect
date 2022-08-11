@@ -1,14 +1,13 @@
-
-import { connect } from "http2";
 import React, { PureComponent } from "react";
 
-import { StoreContext } from "./context";
+import { StoreContext } from './context';
 
-export function connect(mapStateToProps, mapDispachToProps) {
-  return function enhanceHoc(WrappedComponent) {
+export function connect(mapStateToProps, mapDispachToProp) {
+  return function enhanceHOC(WrappedComponent) {
     class EnhanceComponent extends PureComponent {
-      constructor(props,context) {
-        super(props,context);
+      constructor(props, context) {
+        super(props, context);
+
         this.state = {
           storeState: mapStateToProps(context.getState())
         }
@@ -17,23 +16,24 @@ export function connect(mapStateToProps, mapDispachToProps) {
       componentDidMount() {
         this.unsubscribe = this.context.subscribe(() => {
           this.setState({
-            storeState: this.context.getState()
+            storeState: mapStateToProps(this.context.getState())
           })
         })
       }
 
       componentWillUnmount() {
-        this.unsubscribe()
+        this.unsubscribe();
       }
 
       render() {
-        return <WrappedComponent {...props}
+        return <WrappedComponent {...this.props}
           {...mapStateToProps(this.context.getState())}
-          {...mapDispachToProps(this.state.dispatch)}/>
+          {...mapDispachToProp(this.context.dispatch)} />
       }
     }
 
-    EnhanceComponent.contextType = StoreContext
-    return EnhanceComponent
+    EnhanceComponent.contextType = StoreContext;
+
+    return EnhanceComponent;
   }
 }

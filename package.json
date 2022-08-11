@@ -1,6 +1,6 @@
 {
-  "name": "react-redux-connect",
-  "version": "1.0.0",
+  "name": "hzz_react-redux-connect",
+  "version": "1.0.7",
   "description": "封装一个连接react和redux的connect函数",
   "main": "utils/index.js",
   "type": "module",
