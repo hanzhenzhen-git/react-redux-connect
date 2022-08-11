@@ -1,0 +1,20 @@
+{
+  "name": "react-redux-connect",
+  "version": "1.0.0",
+  "description": "封装一个连接react和redux的connect函数",
+  "main": "utils/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanzhenzhen-git/react-redux-connect.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanzhenzhen-git/react-redux-connect/issues"
+  },
+  "homepage": "https://github.com/hanzhenzhen-git/react-redux-connect#readme"
+}
